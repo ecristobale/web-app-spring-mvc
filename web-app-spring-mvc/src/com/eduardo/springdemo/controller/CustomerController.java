@@ -23,12 +23,24 @@ public class CustomerController {
 	@GetMapping("/list")
 	public String listCustomers(Model theModel) {
 		
-		// Create fake customers
+		// get customers from the service
 		List<Customer> theCustomers = customerService.getCustomers();
 				
 		// add the customers to the model
 		theModel.addAttribute("customers", theCustomers);
 		
 		return "list-customers";
+	}
+	
+	@GetMapping("/showFormForAdd")
+	public String showFormForAdd(Model theModel) {
+		
+		// create model attribute to bind form data
+		Customer customer = new Customer();
+		
+		// add one customer to the model for the form
+		theModel.addAttribute("customer", customer);
+		
+		return "customer-form";
 	}
 }
