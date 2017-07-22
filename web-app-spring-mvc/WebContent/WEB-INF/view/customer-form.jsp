@@ -26,6 +26,10 @@
 		<h3>Save Customer</h3>
 		
 		<form:form action="saveCustomer" modelAttribute="customer" method="POST">
+		
+			<!-- For update is needed to show the customer id -->
+			<form:hidden path="id"/>
+			
 			<table>
 				<tbody>
 					<tr>
