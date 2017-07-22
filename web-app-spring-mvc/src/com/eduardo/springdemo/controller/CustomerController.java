@@ -73,7 +73,7 @@ public class CustomerController {
 	public String deleteCustomer(@RequestParam("customerId") int theId) {
 		
 		// delete customer using our service
-		
+		customerService.deleteCustomer(theId);
 		
 		return "redirect:/customer/list";
 	}
