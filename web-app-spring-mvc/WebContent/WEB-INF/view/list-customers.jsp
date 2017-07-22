@@ -27,7 +27,24 @@
 	
 		<div id="content">
 		
-			${message}
+			<!-- html table with customers -->
+			<table>
+				<tr>
+					<td>First name</td>
+					<td>Last name</td>
+					<td>Email</td>
+				</tr>
+				
+				<!-- loop over and print each customer -->
+				<c:forEach var="tempCustomer" items="${customers}">
+					<tr>
+						<td>${tempCustomer.firstName}</td>
+						<td>${tempCustomer.lastName}</td>
+						<td>${tempCustomer.email}</td>
+					</tr>
+				</c:forEach>
+				
+			</table>
 				
 		</div>
 	
