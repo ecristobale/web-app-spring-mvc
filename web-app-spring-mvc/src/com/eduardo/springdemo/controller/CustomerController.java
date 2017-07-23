@@ -3,10 +3,12 @@ package com.eduardo.springdemo.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
@@ -31,6 +33,10 @@ public class CustomerController {
 	// Inject the CustomerService
 	@Autowired
 	private CustomerService customerService;
+	
+	// Load the property file (colors.properties) into the Map, we will add it to the model
+	@Value("#{colorOptions}")
+	private Map<String,String> colorOptions;
 	
 	// add an initBinder to convert trim all input Strings
 	// remove leading and trailing whitespace
@@ -72,6 +78,9 @@ public class CustomerController {
 		// add one customer to the model for the form
 		theModel.addAttribute("customer", customer);
 		
+		// Add the color options to the model
+		theModel.addAttribute("theColorOptions", colorOptions);
+		
 		return "customer-form";
 	}
 	
@@ -84,6 +93,9 @@ public class CustomerController {
 		
 		// add the customer to the model to prepopulate the form with that data
 		theModel.addAttribute("customer", theCustomer);
+		
+		// Add the color options to the model
+		theModel.addAttribute("theColorOptions", colorOptions);
 		
 		return "customer-form";
 	}

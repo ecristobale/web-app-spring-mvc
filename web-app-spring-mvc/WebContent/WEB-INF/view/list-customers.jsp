@@ -49,6 +49,7 @@
 					<td>Email</td>
 					<td>Coupons</td>
 					<td>Birth date</td>
+					<td>Color</td>
 					<td>Action</td>
 				</tr>
 				
@@ -70,6 +71,7 @@
 						<td>${tempCustomer.email}</td>
 						<td>${tempCustomer.discountCoupons}</td>
 						<td><fmt:formatDate pattern="dd-MM-yyyy" value="${tempCustomer.birthDate}" /></td>
+						<td>${tempCustomer.color}</td>
 						
 						<!-- Display the link for update -->
 						<td>
