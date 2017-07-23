@@ -48,6 +48,10 @@
 						<td><form:input path="email"/></td>
 					</tr>
 					<tr>
+						<td><label>Coupons (*):</label></td>
+						<td><form:input path="discountCoupons"/></td>
+					</tr>
+					<tr>
 						<td><label></label></td>
 						<td><input type="submit" value="Save" class="save"/></td>
 					</tr>
