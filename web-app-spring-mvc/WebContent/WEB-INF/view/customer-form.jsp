@@ -53,6 +53,11 @@
 						<td><form:errors path="discountCoupons" cssClass="error"/></td>
 					</tr>
 					<tr>
+						<td><label>Birth i.e. (31-12-1998):</label></td>
+						<td><form:input path="birthDate"/></td>
+						<td><form:errors path="birthDate" cssClass="error"/></td>
+					</tr>
+					<tr>
 						<td><label></label></td>
 						<td><input type="submit" value="Save" class="save"/></td>
 					</tr>

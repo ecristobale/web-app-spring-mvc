@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 
@@ -47,6 +48,7 @@
 					<td>Last name</td>
 					<td>Email</td>
 					<td>Coupons</td>
+					<td>Birth date</td>
 					<td>Action</td>
 				</tr>
 				
@@ -67,6 +69,7 @@
 						<td>${tempCustomer.lastName}</td>
 						<td>${tempCustomer.email}</td>
 						<td>${tempCustomer.discountCoupons}</td>
+						<td><fmt:formatDate pattern="dd-MM-yyyy" value="${tempCustomer.birthDate}" /></td>
 						
 						<!-- Display the link for update -->
 						<td>

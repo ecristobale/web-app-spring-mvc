@@ -1,10 +1,13 @@
 package com.eduardo.springdemo.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +41,14 @@ public class CustomerController {
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 			
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+		
+		// Date
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		
+		dateFormat.setLenient(false);
+		
+		dataBinder.registerCustomEditor(Date.class, "birthDate",
+	            new CustomDateEditor(dateFormat, true));
 	}
 
 	@GetMapping("/list")
@@ -80,6 +91,9 @@ public class CustomerController {
 	@PostMapping("/saveCustomer")
 	public String saveCustomer(@Valid @ModelAttribute("customer") Customer theCustomer,
 			BindingResult theBindingResult) {
+		
+		// printing for see the errors and creating custom messages System.out.println("" + theBindingResult);
+		
 		// if there are errors just return to the form
 		if(theBindingResult.hasErrors()) {
 			return "customer-form";
