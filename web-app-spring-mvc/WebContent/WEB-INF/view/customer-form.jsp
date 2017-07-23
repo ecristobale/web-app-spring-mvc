@@ -37,8 +37,10 @@
 						<td><form:input path="firstName"/></td>
 					</tr>
 					<tr>
-						<td><label>Last name:</label></td>
+						<td style="width: 120px;"><label>Last name (*):</label></td>
 						<td><form:input path="lastName"/></td>
+						<td><form:errors path="lastName" cssClass="error"/></td>
+						
 					</tr>
 					<tr>
 						<td><label>Email:</label></td>

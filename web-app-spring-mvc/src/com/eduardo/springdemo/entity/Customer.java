@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="customer")
@@ -20,6 +22,8 @@ public class Customer {
 	private String firstName;
 	
 	@Column(name="last_name")
+	@NotNull(message="is required")
+	@Size(min=2, max=20, message="2-20 characters")
 	private String lastName;
 	
 	@Column(name="email")
