@@ -58,6 +58,14 @@
 						<td><form:errors path="birthDate" cssClass="error"/></td>
 					</tr>
 					<tr>
+						<td><label>Color:</label></td>
+						<td><form:select path="color">
+								<form:option value="" label="Select Color" />
+								<form:options items="${theColorOptions}" />
+							</form:select></td>
+						
+					</tr>
+					<tr>
 						<td><label></label></td>
 						<td><input type="submit" value="Save" class="save"/></td>
 					</tr>
