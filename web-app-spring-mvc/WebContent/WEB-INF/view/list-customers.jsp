@@ -46,6 +46,7 @@
 					<td>First name</td>
 					<td>Last name</td>
 					<td>Email</td>
+					<td>Coupons</td>
 					<td>Action</td>
 				</tr>
 				
@@ -65,6 +66,7 @@
 						<td>${tempCustomer.firstName}</td>
 						<td>${tempCustomer.lastName}</td>
 						<td>${tempCustomer.email}</td>
+						<td>${tempCustomer.discountCoupons}</td>
 						
 						<!-- Display the link for update -->
 						<td>

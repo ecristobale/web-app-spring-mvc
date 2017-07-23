@@ -31,6 +31,9 @@ public class Customer {
 	@Column(name="email")
 	private String email;
 	
+	@Column(name="discount_coupons")
+	private int discountCoupons;
+	
 	public Customer() {}
 
 	public int getId() {
@@ -65,10 +68,19 @@ public class Customer {
 		this.email = email;
 	}
 
+	public int getDiscountCoupons() {
+		return discountCoupons;
+	}
+
+	public void setDiscountCoupons(int discountCoupons) {
+		this.discountCoupons = discountCoupons;
+	}
+
 	// Good for debugging actions
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", discountCoupons=" + discountCoupons + "]";
 	}
-	
+
 }
