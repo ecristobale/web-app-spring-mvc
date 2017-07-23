@@ -1,11 +1,20 @@
 package com.eduardo.springdemo.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +31,25 @@ public class CustomerController {
 	// Inject the CustomerService
 	@Autowired
 	private CustomerService customerService;
+	
+	// add an initBinder to convert trim all input Strings
+	// remove leading and trailing whitespace
+	// resolve issue for our validation
+	@InitBinder
+	public void initBinder(WebDataBinder dataBinder) {
+			
+		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+			
+		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+		
+		// Date
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+		
+		dateFormat.setLenient(false);
+		
+		dataBinder.registerCustomEditor(Date.class, "birthDate",
+	            new CustomDateEditor(dateFormat, true));
+	}
 
 	@GetMapping("/list")
 	public String listCustomers(Model theModel) {
@@ -61,7 +89,15 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/saveCustomer")
-	public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
+	public String saveCustomer(@Valid @ModelAttribute("customer") Customer theCustomer,
+			BindingResult theBindingResult) {
+		
+		// printing for see the errors and creating custom messages System.out.println("" + theBindingResult);
+		
+		// if there are errors just return to the form
+		if(theBindingResult.hasErrors()) {
+			return "customer-form";
+		}
 		
 		// save the customer using our service
 		customerService.saveCustomer(theCustomer);

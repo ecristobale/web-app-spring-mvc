@@ -34,7 +34,12 @@
 	</bean>
 	
 	<!-- Load the database.properties file -->
-    <context:property-placeholder location="classpath:database.properties"/>
+    <context:property-placeholder location="classpath:resources/database.properties"/>
+    
+    <!-- Load custom message resources (id, class and property has to be exactly that) -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		  <property name="basenames" value="resources/messages"/>
+	</bean>
 	
 	<!-- DB 1: Define Database DataSource & connection pool -->
 	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"

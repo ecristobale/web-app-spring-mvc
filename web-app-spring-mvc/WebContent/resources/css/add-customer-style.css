@@ -4,7 +4,7 @@ form {
 
 label {
 	font-size: 16px; 
-	width: 100px; 
+	width: 167px; 
 	display: block; 
 	text-align: right;
 	margin-right: 10px;
@@ -28,9 +28,13 @@ input {
 	background: #cccccc;
 }
 
+.error {
+	color: red;
+}
+
 table {   
 	border-style:none;
-	width:50%;
+	width:71%;
 }
 
 tr:nth-child(even) {background: #FFFFFF}

@@ -33,16 +33,29 @@
 			<table>
 				<tbody>
 					<tr>
-						<td><label>First name:</label></td>
+						<td><label>First name (*):</label></td>
 						<td><form:input path="firstName"/></td>
+						<td><form:errors path="firstName" cssClass="error"/></td>
 					</tr>
 					<tr>
-						<td><label>Last name:</label></td>
+						<td style="width: 120px;"><label>Last name (*):</label></td>
 						<td><form:input path="lastName"/></td>
+						<td><form:errors path="lastName" cssClass="error"/></td>
+						
 					</tr>
 					<tr>
 						<td><label>Email:</label></td>
 						<td><form:input path="email"/></td>
+					</tr>
+					<tr>
+						<td><label>Coupons (*):</label></td>
+						<td><form:input path="discountCoupons"/></td>
+						<td><form:errors path="discountCoupons" cssClass="error"/></td>
+					</tr>
+					<tr>
+						<td><label>Birth i.e. (31-12-1998):</label></td>
+						<td><form:input path="birthDate"/></td>
+						<td><form:errors path="birthDate" cssClass="error"/></td>
 					</tr>
 					<tr>
 						<td><label></label></td>
