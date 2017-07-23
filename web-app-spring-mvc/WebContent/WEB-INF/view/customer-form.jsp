@@ -33,8 +33,9 @@
 			<table>
 				<tbody>
 					<tr>
-						<td><label>First name:</label></td>
+						<td><label>First name (*):</label></td>
 						<td><form:input path="firstName"/></td>
+						<td><form:errors path="firstName" cssClass="error"/></td>
 					</tr>
 					<tr>
 						<td style="width: 120px;"><label>Last name (*):</label></td>
