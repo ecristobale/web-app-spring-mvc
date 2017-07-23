@@ -50,6 +50,7 @@
 					<tr>
 						<td><label>Coupons (*):</label></td>
 						<td><form:input path="discountCoupons"/></td>
+						<td><form:errors path="discountCoupons" cssClass="error"/></td>
 					</tr>
 					<tr>
 						<td><label></label></td>
