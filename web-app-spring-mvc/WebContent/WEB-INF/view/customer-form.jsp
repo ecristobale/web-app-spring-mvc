@@ -60,7 +60,6 @@
 					<tr>
 						<td><label>Color:</label></td>
 						<td><form:select path="color">
-								<form:option value="" label="Select Color" />
 								<form:options items="${theColorOptions}" />
 							</form:select></td>
 						

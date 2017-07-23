@@ -71,7 +71,7 @@
 						<td>${tempCustomer.email}</td>
 						<td>${tempCustomer.discountCoupons}</td>
 						<td><fmt:formatDate pattern="dd-MM-yyyy" value="${tempCustomer.birthDate}" /></td>
-						<td>${tempCustomer.color}</td>
+						<td>${theColorOptions.get(tempCustomer.color)}</td>
 						
 						<!-- Display the link for update -->
 						<td>
