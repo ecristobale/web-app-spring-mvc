@@ -1,15 +1,21 @@
 package com.eduardo.springdemo.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.eduardo.utils.DateUtils;
 
 @Entity
 @Table(name="customer")
@@ -38,6 +44,10 @@ public class Customer {
 	@Min(value=0, message="must be equal to or greater than 0")
 	@Max(value=5, message="must be equal to or less than 5")
 	private int discountCoupons;
+	
+	@Column(name="birth_date")
+	@Temporal(TemporalType.DATE)
+	private Date birthDate;
 	
 	public Customer() {}
 
@@ -81,11 +91,20 @@ public class Customer {
 		this.discountCoupons = discountCoupons;
 	}
 
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
 	// Good for debugging actions
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", discountCoupons=" + discountCoupons + "]";
+				+ ", discountCoupons=" + discountCoupons + ", birthDate=" + DateUtils.formatDate(birthDate) + "]";
 	}
+
+	
 
 }
