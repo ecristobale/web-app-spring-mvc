@@ -52,6 +52,12 @@
 				   onclick="window.location.href='filterByAge'; return false"
 				   class="add-button"
 			/>
+			
+			<!-- Button for 404 error -->
+			<input type="button" value="404 page"
+				   onclick="window.location.href='fakeUrl'; return false"
+				   class="add-button"
+			/>
 		
 			<!-- html table with customers -->
 			<table>
