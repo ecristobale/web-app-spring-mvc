@@ -28,6 +28,12 @@
 	<div id="container">
 	
 		<div id="content">
+			
+			<!-- Search box -->
+			<form:form action="search" method="POST">
+				Search customer: <input type="text" name="theSearch" />
+				<input type="submit" value="Search" class="add-button" />
+			</form:form>
 		
 			<!-- Button for add customer -->
 			<input type="button" value="Add Customer"
@@ -35,11 +41,23 @@
 				   class="add-button"
 			/>
 			
-			<!-- Search box -->
-			<form:form action="search" method="POST">
-				Search customer: <input type="text" name="theSearch" />
-				<input type="submit" value="Search" class="add-button" />
-			</form:form>
+			<!-- Button for delete all customers -->
+			<input type="button" value="Delete All"
+				   onclick="window.location.href='deleteAll'; return false"
+				   class="add-button"
+			/>
+			
+			<!-- Button for filter customers -->
+			<input type="button" value="Show age: +18"
+				   onclick="window.location.href='filterByAge'; return false"
+				   class="add-button"
+			/>
+			
+			<!-- Button for 404 error -->
+			<input type="button" value="404 page"
+				   onclick="window.location.href='fakeUrl'; return false"
+				   class="add-button"
+			/>
 		
 			<!-- html table with customers -->
 			<table>
@@ -49,6 +67,7 @@
 					<td>Email</td>
 					<td>Coupons</td>
 					<td>Birth date</td>
+					<td>Color</td>
 					<td>Action</td>
 				</tr>
 				
@@ -70,6 +89,7 @@
 						<td>${tempCustomer.email}</td>
 						<td>${tempCustomer.discountCoupons}</td>
 						<td><fmt:formatDate pattern="dd-MM-yyyy" value="${tempCustomer.birthDate}" /></td>
+						<td>${theColorOptions.get(tempCustomer.color)}</td>
 						
 						<!-- Display the link for update -->
 						<td>

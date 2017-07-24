@@ -49,6 +49,9 @@ public class Customer {
 	@Temporal(TemporalType.DATE)
 	private Date birthDate;
 	
+	@Column(name="color")
+	private String color;
+	
 	public Customer() {}
 
 	public int getId() {
@@ -98,12 +101,23 @@ public class Customer {
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
+	
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
 	// Good for debugging actions
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", discountCoupons=" + discountCoupons + ", birthDate=" + DateUtils.formatDate(birthDate) + "]";
+				+ ", discountCoupons=" + discountCoupons + ", birthDate=" + DateUtils.formatDate(birthDate) + ", color=" + color + "]";
 	}
+
+	
 
 	
 

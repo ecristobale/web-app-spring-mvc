@@ -5,6 +5,7 @@
     xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -15,7 +16,9 @@
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/aop
-		http://www.springframework.org/schema/aop/spring-aop.xsd">
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/util     
+        http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<!-- Add AspectJ autoproxy support for AOP -->
 	<aop:aspectj-autoproxy />
@@ -25,6 +28,9 @@
 
 	<!-- Add support for conversion, formatting and validation support -->
 	<mvc:annotation-driven/>
+	
+	<!-- Add properties file about colors, the id is the name we will use in the controller to inject it -->
+	<util:properties id="colorOptions" location="classpath:../colors.properties" />
 
 	<!-- Define Spring MVC view resolver -->
 	<bean
