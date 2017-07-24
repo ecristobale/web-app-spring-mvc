@@ -41,8 +41,11 @@
 				<input type="submit" value="Search" class="add-button" />
 			</form:form>
 			
-			<!-- Filter by age -->
-			<form:checkbox path="ageFilterCB" value="ageFilterCB" onclick="alert('Filtering...');"/> Filter by age
+			<!-- Button for filter customers -->
+			<input type="button" value="Show age: +18"
+				   onclick="window.location.href='filterByAge'; return false"
+				   class="add-button"
+			/>
 		
 			<!-- html table with customers -->
 			<table>

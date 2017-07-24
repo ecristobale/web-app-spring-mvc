@@ -1,6 +1,9 @@
 package com.eduardo.springdemo.dao;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -91,6 +94,27 @@ public class CustomerDAOImpl implements CustomerDAO {
 		
 		List<Customer> customers = theQuery.getResultList();
 		
+		return customers;
+	}
+
+	@Override
+	public List<Customer> getCustomersAgeFiltered() {
+
+		// get hibernate current session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.YEAR, -18); // to get 18 before year we add -18
+		Date oldDate = cal.getTime();
+		
+		// create query to get dates less than the oldDate (18 years before now) sorted by lastName
+		Query<Customer> theQuery = currentSession.createQuery("from Customer where birthDate <= :oldDate "
+				+ "order by lastName", Customer.class);
+		theQuery.setParameter("oldDate", oldDate);
+		
+		// execute the query and get the result list
+		List<Customer> customers = theQuery.getResultList();
+
 		return customers;
 	}
 

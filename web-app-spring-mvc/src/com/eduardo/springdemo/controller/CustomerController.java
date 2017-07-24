@@ -34,8 +34,6 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 	
-	private boolean ageFilter = false;
-	
 	// Load the property file (colors.properties) into the Map, we will add it to the model
 	@Value("#{colorOptions}")
 	private Map<String,String> colorOptions;
@@ -70,9 +68,6 @@ public class CustomerController {
 		
 		// Add the color options to the model
 		theModel.addAttribute("theColorOptions", colorOptions);
-		
-		// Add the age filter
-		theModel.addAttribute("ageFilterCB", ageFilter);
 		
 		return "list-customers";
 	}
@@ -143,6 +138,23 @@ public class CustomerController {
 		
 		// add these customers to the model
 		theModel.addAttribute("customers", theCustomers);
+		
+		// Add the color options to the model
+		theModel.addAttribute("theColorOptions", colorOptions);
+		
+		return "list-customers";
+	}
+	
+	@GetMapping("/filterByAge")
+	public String filterByAge(Model theModel) {
+
+		List<Customer> theCustomers = customerService.getCustomersAgeFiltered();
+
+		// add these customers to the model
+		theModel.addAttribute("customers", theCustomers);
+		
+		// Add the color options to the model
+		theModel.addAttribute("theColorOptions", colorOptions);
 		
 		return "list-customers";
 	}
