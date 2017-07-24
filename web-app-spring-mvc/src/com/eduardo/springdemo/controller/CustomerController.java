@@ -167,4 +167,9 @@ public class CustomerController {
 		
 		return "redirect:/customer/list";
 	}
+	
+	@RequestMapping("/**")
+    public String handleResourceNotFoundException() {
+        return "notfound";
+    }
 }
