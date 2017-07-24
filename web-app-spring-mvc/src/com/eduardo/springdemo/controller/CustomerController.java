@@ -158,4 +158,13 @@ public class CustomerController {
 		
 		return "list-customers";
 	}
+	
+	@GetMapping("/deleteAll")
+	public String deleteAllCustomers() {
+		
+		// delete customer using our service
+		customerService.deleteAllCustomers();
+		
+		return "redirect:/customer/list";
+	}
 }

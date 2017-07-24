@@ -17,4 +17,6 @@ public interface CustomerService {
 	public List<Customer> searchCustomers(String theSearch);
 
 	public List<Customer> getCustomersAgeFiltered();
+
+	public void deleteAllCustomers();
 }

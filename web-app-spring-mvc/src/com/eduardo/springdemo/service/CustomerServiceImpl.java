@@ -51,4 +51,10 @@ public class CustomerServiceImpl implements CustomerService {
 	public List<Customer> getCustomersAgeFiltered() {
 		return customerDAO.getCustomersAgeFiltered();
 	}
+
+	@Override
+	@Transactional
+	public void deleteAllCustomers() {
+		customerDAO.deleteAllCustomers();
+	}
 }
