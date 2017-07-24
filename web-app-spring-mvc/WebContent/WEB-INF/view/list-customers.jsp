@@ -28,6 +28,12 @@
 	<div id="container">
 	
 		<div id="content">
+			
+			<!-- Search box -->
+			<form:form action="search" method="POST">
+				Search customer: <input type="text" name="theSearch" />
+				<input type="submit" value="Search" class="add-button" />
+			</form:form>
 		
 			<!-- Button for add customer -->
 			<input type="button" value="Add Customer"
@@ -35,11 +41,11 @@
 				   class="add-button"
 			/>
 			
-			<!-- Search box -->
-			<form:form action="search" method="POST">
-				Search customer: <input type="text" name="theSearch" />
-				<input type="submit" value="Search" class="add-button" />
-			</form:form>
+			<!-- Button for delete all customers -->
+			<input type="button" value="Delete All"
+				   onclick="window.location.href='deleteAll'; return false"
+				   class="add-button"
+			/>
 			
 			<!-- Button for filter customers -->
 			<input type="button" value="Show age: +18"

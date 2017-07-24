@@ -118,4 +118,14 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return customers;
 	}
 
+	@Override
+	public void deleteAllCustomers() {
+		
+		// get hibernate current session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		// delete all customers in the DB
+		currentSession.createQuery("delete from Customer").executeUpdate();
+	}
+
 }
