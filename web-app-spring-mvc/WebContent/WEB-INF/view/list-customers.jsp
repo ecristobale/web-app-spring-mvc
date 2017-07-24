@@ -40,6 +40,9 @@
 				Search customer: <input type="text" name="theSearch" />
 				<input type="submit" value="Search" class="add-button" />
 			</form:form>
+			
+			<!-- Filter by age -->
+			<form:checkbox path="ageFilterCB" value="ageFilterCB" onclick="alert('Filtering...');"/> Filter by age
 		
 			<!-- html table with customers -->
 			<table>
