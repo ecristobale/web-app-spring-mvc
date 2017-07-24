@@ -139,6 +139,23 @@ public class CustomerController {
 		// add these customers to the model
 		theModel.addAttribute("customers", theCustomers);
 		
+		// Add the color options to the model
+		theModel.addAttribute("theColorOptions", colorOptions);
+		
+		return "list-customers";
+	}
+	
+	@GetMapping("/filterByAge")
+	public String filterByAge(Model theModel) {
+
+		List<Customer> theCustomers = customerService.getCustomersAgeFiltered();
+
+		// add these customers to the model
+		theModel.addAttribute("customers", theCustomers);
+		
+		// Add the color options to the model
+		theModel.addAttribute("theColorOptions", colorOptions);
+		
 		return "list-customers";
 	}
 }

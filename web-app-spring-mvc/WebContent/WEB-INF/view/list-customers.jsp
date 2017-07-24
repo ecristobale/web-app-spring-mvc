@@ -40,6 +40,12 @@
 				Search customer: <input type="text" name="theSearch" />
 				<input type="submit" value="Search" class="add-button" />
 			</form:form>
+			
+			<!-- Button for filter customers -->
+			<input type="button" value="Show age: +18"
+				   onclick="window.location.href='filterByAge'; return false"
+				   class="add-button"
+			/>
 		
 			<!-- html table with customers -->
 			<table>

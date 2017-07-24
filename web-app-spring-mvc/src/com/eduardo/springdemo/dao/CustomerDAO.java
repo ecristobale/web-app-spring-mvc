@@ -15,4 +15,6 @@ public interface CustomerDAO {
 	public void deleteCustomer(int theId);
 
 	public List<Customer> searchCustomers(String theSearch);
+
+	public List<Customer> getCustomersAgeFiltered();
 }
